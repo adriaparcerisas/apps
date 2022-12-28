@@ -1,6 +1,3 @@
-# Welcome to Streamlit!
+# Welcome to Adrià's On-chain data apps repository!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire. :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+If you have any questions, reach me via [Discord](adriaparcerisas#5642) or [Twitter](https://www.twitter.com/adriaparcerisas).
