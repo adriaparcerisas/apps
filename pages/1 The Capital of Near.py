@@ -55,8 +55,12 @@ WHERE block_timestamp::date < CURRENT_DATE and block_timestamp::date>=CURRENT_DA
 
 # In[192]:
 
+st.experimental_memo(ttl=21600)
+def compute(a):
+    data=sdk.query(a)
+    return data
 
-results = sdk.query(sql)
+results = compute(sql)
 df = pd.DataFrame(results.records)
 df.info()
 st.subheader('Near activity metrics over the past month')
@@ -77,8 +81,7 @@ WHERE block_timestamp::date < CURRENT_DATE-INTERVAL '1 MONTH' and block_timestam
 
 # In[194]:
 
-
-results_bis = sdk.query(sql_bis)
+results_bis = compute(sql_bis)
 df_bis = pd.DataFrame(results_bis.records)
 df_bis.info()
 
@@ -154,8 +157,7 @@ ORDER BY date DESC
 
 # In[197]:
 
-
-results = sdk.query(sql2)
+results = compute(sql2)
 df2 = pd.DataFrame(results.records)
 df2.info()
 #st.markdown('Total number of unique users on Near so far')
@@ -217,8 +219,7 @@ group by 1,2 order by 1 asc,2 desc
 
 # In[202]:
 
-
-results = sdk.query(sql3)
+results = compute(sql3)
 df3 = pd.DataFrame(results.records)
 
 
@@ -272,8 +273,7 @@ limit 10
 
 # In[206]:
 
-
-results = sdk.query(sql4)
+results = compute(sql4)
 df4 = pd.DataFrame(results.records)
 
 
