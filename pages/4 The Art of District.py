@@ -110,8 +110,12 @@ order by 1 asc
 
 # In[82]:
 
+st.experimental_memo(ttl=21600)
+def compute(a):
+    data=sdk.query(a)
+    return data
 
-results = sdk.query(sql)
+results = compute(sql)
 df = pd.DataFrame(results.records)
 df.info()
 st.subheader('Main NFT activity metrics over the past month')
@@ -120,24 +124,21 @@ st.markdown('In this part, it can be seen the average metrics of NFT activity du
 
 # In[83]:
 
-
-results_bis = sdk.query(sql_bis)
+results_bis = compute(sql_bis)
 df_bis = pd.DataFrame(results_bis.records)
 df_bis.info()
 
 
 # In[84]:
 
-
-results2 = sdk.query(sql2)
+results2 = compute(sql2)
 df2 = pd.DataFrame(results2.records)
 df2.info()
 
 
 # In[85]:
 
-
-results_num = sdk.query(sql_numbers)
+results_num = compute(sql_numbers)
 df_num = pd.DataFrame(results_num.records)
 df_num.info()
 
@@ -205,8 +206,7 @@ order by 1 asc
 
 # In[99]:
 
-
-results3 = sdk.query(sql3)
+results3 = compute(sql3)
 df3 = pd.DataFrame(results3.records)
 df3.info()
 
