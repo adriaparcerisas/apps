@@ -70,8 +70,12 @@ from near.core.fact_actions_events_function_call
 
 # In[7]:
 
+st.experimental_memo(ttl=21600)
+def compute(a):
+    data=sdk.query(a)
+    return data
 
-results = sdk.query(sql)
+results = compute(sql)
 df = pd.DataFrame(results.records)
 df.info()
 st.subheader('Main staking activity metrics over the past month')
@@ -138,8 +142,7 @@ join t3 on t2.date=t3.date and t2.validator=t3.validator where t2.validator not 
 
 # In[12]:
 
-
-results2 = sdk.query(sql2)
+results2 = compute(sql2)
 df2 = pd.DataFrame(results2.records)
 df2.info()
 
@@ -309,8 +312,7 @@ order by rank asc
 
 # In[42]:
 
-
-results3 = sdk.query(sql3)
+results3 = compute(sql3)
 df3 = pd.DataFrame(results3.records)
 
 
@@ -417,8 +419,7 @@ group by 1 order by 1 asc
 
 # In[32]:
 
-
-results4 = sdk.query(sql4)
+results4 = compute(sql4)
 df4 = pd.DataFrame(results4.records)
 
 
