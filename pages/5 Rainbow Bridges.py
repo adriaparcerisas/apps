@@ -451,8 +451,12 @@ where date >= current_date-INTERVAL '1 MONTH'
 
 # In[20]:
 
+st.experimental_memo(ttl=86400)
+def compute(a):
+    data=sdk.query(a)
+    return data
 
-results = sdk.query(sql)
+results = compute(sql)
 df = pd.DataFrame(results.records)
 df.info()
 st.subheader('Main bridging activity over the past month')
