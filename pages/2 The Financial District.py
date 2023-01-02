@@ -246,8 +246,12 @@ group by 1
 
 # In[37]:
 
+st.experimental_memo(ttl=21600)
+def compute(a):
+    data=sdk.query(a)
+    return data
 
-results = sdk.query(sql)
+results = compute(sql)
 df = pd.DataFrame(results.records)
 df.info()
 st.subheader('Main Financial metrics over the past month')
@@ -460,8 +464,7 @@ group by 1
 
 # In[39]:
 
-
-results2 = sdk.query(sql2)
+results2 = compute(sql2)
 df2 = pd.DataFrame(results2.records)
 df2.info()
 
@@ -612,8 +615,7 @@ order by 2 DESC
 
 # In[47]:
 
-
-results3 = sdk.query(sql3)
+results3 = compute(sql3)
 df3 = pd.DataFrame(results3.records)
 
 
@@ -835,8 +837,7 @@ limit 25
 
 # In[57]:
 
-
-results4 = sdk.query(sql4)
+results4 = compute(sql4)
 df4 = pd.DataFrame(results4.records)
 
 
