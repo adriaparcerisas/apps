@@ -452,6 +452,7 @@ where date >= current_date-INTERVAL '1 MONTH'
 # In[20]:
 
 st.experimental_memo(ttl=86400)
+@st.cache
 def compute(a):
     data=sdk.query(a)
     return data
